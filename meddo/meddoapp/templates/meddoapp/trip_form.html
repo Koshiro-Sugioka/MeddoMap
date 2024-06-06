@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}MeddoMap | Home {% endblock title %}
+
+{% block content %}
+{% load static %}
+<style>
+    body {
+        background-color: blue;
+
+    }
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("{% static 'images/bg2.jpeg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.5; /* Adjust the opacity level here */
+        z-index: -1;
+        
+    }
+
+    .content-container {
+       color: white;
+    }
+</style>
+
+    <!-- Body Content -->
+    <div class="content-container">
+        <div class="container">
+        <h1>New Trip</h1>
+        {% load widget_tweaks %}
+
+        <form method="post" class="form">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field|add_class:"form-control" }}
+                {% if field.help_text %}
+                <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+    </div>
+
+{% endblock content %}

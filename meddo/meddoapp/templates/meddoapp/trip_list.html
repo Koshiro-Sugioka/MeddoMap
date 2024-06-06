@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Trips{% endblock title %}
+
+{% block content %}
+
+    <!-- Body Content -->
+    <div class="content-container">
+        <div class="container">
+            <h1>Trips</h1>
+            <ul>
+                {% for trip in trip_list %}
+                <li>
+                    <a href="/meddoapp/detail_trip/{{trip.id}}">{{trip.trip_name}}</a>
+                </li>
+                {% endfor %}               
+            </ul>
+
+            
+        </div>
+    </div>
+
+{% endblock content %}

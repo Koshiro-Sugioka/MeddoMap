@@ -1,0 +1,37 @@
+#map-search-box {
+    width: 300px;
+    height: 40px;
+    font-size: 16px;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.places {
+    margin-bottom: 20px;
+}
+
+.info {
+    margin-bottom: 20px;
+}
+
+.sub-container {
+    margin-left: 30px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.container, .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+}
+.navbar {
+    background-color: white;
+    font-color: black;
+    border-bottom: 1px solid #ccc;
+}
+footer {
+    background-color: white;
+    border-top: 1px solid #ccc;
+}

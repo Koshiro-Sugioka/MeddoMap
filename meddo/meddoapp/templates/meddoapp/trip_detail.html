@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}MeddoMap | {{ trip }} {% endblock title %}
+
+{% block content %}
+<style>
+    .map {
+        height: 600px;
+        width: 68%;
+    }
+    .right {
+        position:fixed;
+        top: 100px;
+        left: 30%;
+
+    }
+
+    .left {
+        width: 50%;
+        margin-top: 20px;
+    }
+
+    .create-btn {
+        position: fixed;
+        top: 120px;
+        right: 5%;
+    }
+
+    .card {
+        margin-top: 10px !important;
+        width: 18rem;
+    }
+
+    
+</style>
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+        <div class="left">
+        <div class="col">
+            <h2>Places</h2>
+            <div class="places">
+                <div id="place-list"></div>
+            </div>
+            <div class="info">
+                <div id="place-info"></div>
+            </div> 
+        </div>
+    </div>
+        <div class="right">
+        <div class="col">
+            <h2>{{ trip }}</h2>
+            <div class="create-btn">
+            <a href="#" class="btn btn-warning create-plan">Create a Plan</a>
+            </div>
+            <div class="map" id="map"></div>   
+        </div>
+    </div>
+    </div>
+             
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'js/app.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&libraries=places&callback=initMap" async defer></script>
+{% endblock scripts %}
